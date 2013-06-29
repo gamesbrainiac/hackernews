@@ -1,0 +1,29 @@
+{# Loading static files #}
+{% load staticfiles %}
+<!doctype html>
+<html lang="en-US">
+<head>
+    <meta charset="UTF-8">
+    {# Title block #}
+    <title>{% block title %}{% endblock %}</title>
+    {# CSS Files #}
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}"/>
+    <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap-responsive.css' %}"/>
+    {% block css %}{% endblock %}
+</head>
+<body>
+    <div class="container">
+        {% block content %}{% endblock %}
+    </div>
+
+    <div class="footer">
+        {% block footer %}{% endblock %}
+    </div>
+
+    {# JavaScript files #}
+    <script type="text/javascript" src="{% static 'js/jquery-2.0.2.js' %}"></script> {# jQuery #}
+    <script type="text/javascript" src="{% static 'js/bootstrap.js' %}"></script> {# Bootstrap #}
+    <script type="text/javascript" src="{% static 'js/self_made_scripts/ajax.js' %}"></script> {# My Ajax file #}
+    {% block scripts %}{% endblock %}
+</body>
+</html>

@@ -1,0 +1,13 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}All Stories{% endblock %}
+
+{% block content %}
+    <ol>
+        {% for story in stories %}
+            <li>
+                {{ story }} | {{ story.created }}
+            </li>
+        {% endfor %}
+    </ol>
+{% endblock %}

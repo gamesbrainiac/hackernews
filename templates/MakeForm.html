@@ -1,0 +1,14 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}
+    Make a Form Yay!
+{% endblock %}
+
+{% block content %}
+    <form action="/stories/make-story/" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="Submit"/>
+    </form>
+
+{% endblock %}
