@@ -34,14 +34,14 @@ class MakeStory(TemplateView):
             })
 
 
-class Ajax(TemplateView):
-
-    def post(self, request, *args, **kwargs):
-        # TODO First, get the post data that we want
-
-        # TODO If we get post data that is correct
-
-            # Todo Use post data to do whatever it is that you want to do
-
-        # Todo Render template with results
-        pass
+# class Ajax(TemplateView):
+#
+#     def post(self, request, *args, **kwargs):
+#         # Todo Get post data
+#
+#         # TODO If we get post data that is correct
+#
+#             # Todo Use post data to do whatever it is that you want to do
+#
+#         # Todo Render template with results
+#         pass
