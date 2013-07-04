@@ -1,4 +1,6 @@
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponseRedirect
+from django.utils.decorators import method_decorator
 from django.views.generic import TemplateView
 from django.shortcuts import render
 
@@ -15,14 +17,17 @@ class AllStories(TemplateView):
         })
 
 
+# @login_required  # Makes user authentication a necessity.
 class MakeStory(TemplateView):
 
+    @method_decorator(login_required)
     def get(self, request, *args, **kwargs):
         form = StoryForm()
         return render(request, 'MakeForm.html', {
             'form': form,
         })
 
+    @method_decorator(login_required)
     def post(self, request):
         form = StoryForm(request.POST)
         if form.is_valid():

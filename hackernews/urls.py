@@ -1,4 +1,5 @@
 from django.conf.urls import patterns, include, url
+from django.contrib.auth.views import login
 
 # Uncomment the next two lines to enable the admin:
 from django.contrib import admin
@@ -6,7 +7,12 @@ admin.autodiscover()
 
 urlpatterns = patterns(
     '',
+    # login area
+    url(r'^login/$', login, {'template_name': 'auth/login.html', }),
+    # Stories app
     url(r'^stories/', include('stories.urls')),
+    # Admin app
     url(r'^admin/doc/', include('django.contrib.admindocs.urls')),
+    # Admin docs
     url(r'^admin/', include(admin.site.urls)),
 )

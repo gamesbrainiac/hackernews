@@ -9,6 +9,9 @@ TEMPLATE_DEBUG = DEBUG
 ADMINS = (
     ('Nafiul Islam', 'gamesbrainiac@gmail.com'),
 )
+LOGIN_URL = '/login/'
+LOGIN_REDIRECT = '/stories/'
+
 
 MANAGERS = ADMINS
 
