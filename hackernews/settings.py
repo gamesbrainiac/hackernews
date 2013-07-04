@@ -10,7 +10,7 @@ ADMINS = (
     ('Nafiul Islam', 'gamesbrainiac@gmail.com'),
 )
 LOGIN_URL = '/login/'
-LOGIN_REDIRECT = '/stories/'
+LOGIN_REDIRECT_URL = '/stories/'
 
 
 MANAGERS = ADMINS

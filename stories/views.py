@@ -17,7 +17,6 @@ class AllStories(TemplateView):
         })
 
 
-# @login_required  # Makes user authentication a necessity.
 class MakeStory(TemplateView):
 
     @method_decorator(login_required)
