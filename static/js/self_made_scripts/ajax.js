@@ -24,16 +24,22 @@ $(document).ready(function() {
         $.ajax({
             type: 'POST',
             url: '/stories/ajax/',
-            data: {},
+            data: {'value_to_be_taken': 10},
             headers: {
                 'X-CSRFToken': csrftoken
             },
             success: function(data) {
-                // do something with ajax data
-
+                $(".stuff-goes-here").append(data)
             }
         });
     }
+
+    (function () {
+        $(".click-here").click(function (event) {
+            ajaxCall();
+            console.log(event);
+        });
+    }());
 
 });
 

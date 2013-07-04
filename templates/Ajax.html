@@ -1,0 +1,15 @@
+{% extends 'layouts/base.html' %}
+
+{% block title %}Simple Ajax Page{% endblock %}
+
+{% block content %}
+    <button class="click-here">Click here</button>
+    <div class="stuff-goes-here">
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'js/self_made_scripts/ajax.js' %}"></script>
+{% endblock %}
