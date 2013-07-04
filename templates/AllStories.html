@@ -3,6 +3,12 @@
 {% block title %}All Stories{% endblock %}
 
 {% block content %}
+    <form action="/stories/" method="post">
+        <label>
+            Ajax Search:
+            <input type="search" id="search"/>
+        </label>
+    </form>
     <ol>
         {% for story in stories %}
             <li>
@@ -10,4 +16,15 @@
             </li>
         {% endfor %}
     </ol>
+
+    <p>Search Results:</p>
+
+    <div class="stuff">
+
+    </div>
+{% endblock %}
+
+{% block scripts %}
+    {% load staticfiles %}
+    <script type="text/javascript" src="{% static 'js/self/AllStories.js' %}"></script>
 {% endblock %}

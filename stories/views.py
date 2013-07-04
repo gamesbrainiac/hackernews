@@ -1,6 +1,6 @@
 from django.http import HttpResponseRedirect
 from django.views.generic import TemplateView
-from django.shortcuts import render
+from django.shortcuts import render, get_list_or_404
 
 from .models import Story
 from .forms import StoryForm
@@ -9,11 +9,22 @@ from .forms import StoryForm
 class AllStories(TemplateView):
 
     def get(self, request, *args, **kwargs):
-        stories = Story.objects.all()
+        stories = Story.objects.all()[:5]
         return render(request, 'AllStories.html', {
             'stories': stories,
             'user': request.user,
         })
+
+    def post(self, request, *args, **kwargs):
+        # print request.POST
+        searchWord = request.POST.get('search')
+        if searchWord != '':
+            listOfPosts = get_list_or_404(Story, title__contains=searchWord)
+            return render(request, 'ajaxReturn.html', {
+                'listOfPosts': listOfPosts,
+            })
+        else:
+            pass
 
 
 class MakeStory(TemplateView):
@@ -33,19 +44,3 @@ class MakeStory(TemplateView):
             return render(request, 'MakeForm.html', {
                 'form': form,
             })
-
-
-class Ajax(TemplateView):
-
-    def get(self, request, *args, **kwargs):
-        return render(request, 'Ajax.html')
-
-    def post(self, request, *args, **kwargs):
-        importantNumber = request.POST.get('value_to_be_taken')
-        return render(request, 'layouts/ajaxResponse.html', {'importantValue': importantNumber, })
-
-        # TODO If we get post data that is correct
-
-            # Todo Use post data to do whatever it is that you want to do
-
-        # Todo Render template with results
